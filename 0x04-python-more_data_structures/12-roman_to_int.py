@@ -6,8 +6,7 @@ def roman_to_int(roman_string):
     conv = 0
     length = len(roman_string)
     for i in range(length):
-        if (i < length-1 and
-        my_dic[roman_string[i]] < my_dic[roman_string[i+1]]):
+        if i < length-1 and my_dic[roman_string[i]] < my_dic[roman_string[i+1]]:
             conv -= my_dic[roman_string[i]]
         else:
             conv += my_dic[roman_string[i]]
