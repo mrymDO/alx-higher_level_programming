@@ -11,6 +11,6 @@ def weight_average(my_list=[]):
         for tuples in my_list:
             total_weight += tuples[1]
         average = res / total_weight
-        return  average
+        return average
     else:
         return 0
