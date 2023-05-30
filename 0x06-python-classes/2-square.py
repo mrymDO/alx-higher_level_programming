@@ -14,11 +14,13 @@ class Square:
         Initializes a Square instance with the given size
         args:
              size (int): the size of the square.
+        Raises:
+             TypeError: If size is not an integer
+             ValueError: If size is less than 0
         """
         if isinstance(size, int):
             if size >= 0:
                 self.__size = size
-                print(size)
             else:
                 raise ValueError("size must be >= 0")
         else:
