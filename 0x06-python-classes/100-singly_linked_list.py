@@ -33,7 +33,7 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        """Setter for the nex_node reference"""
+        """Setter for the next_node reference"""
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
@@ -43,11 +43,11 @@ class SinglyLinkedList:
     """ Class that defines a singly linked list"""
     def __init__(self):
         """Initializes an empty object"""
-        self.head = None
+        self.__head = None
 
     def __str__(self):
         """returns string representation of the linked list"""
-        temp2 = self.head
+        temp2 = self.__head
         result = []
         while temp2 is not None:
             result.append(str(temp2.data))
@@ -57,13 +57,13 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         """ Inserts a new node in sorted order in the linked list"""
         new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-        elif value < self.head.data:
-            new_node.next_node = self.head
-            self.head = new_node
+        if self.__head is None:
+            self.__head = new_node
+        elif value < self.__head.data:
+            new_node.next_node = self.__head
+            self.__head = new_node
         else:
-            temp = self.head
+            temp = self.__head
             while (
                 temp.next_node is not None
                 and temp.next_node.data < value
