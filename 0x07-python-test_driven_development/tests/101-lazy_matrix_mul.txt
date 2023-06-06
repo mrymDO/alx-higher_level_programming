@@ -1,0 +1,38 @@
+The ``101-lazy_matrix_mul`` module
+==================================
+
+Using ``lazy_matrix_mul``
+-------------------------
+
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+>>>
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+>>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+[[58, 64], [139, 154]]
+>>> lazy_matrix_mul([[5]], [[2]])
+[[10]]
+>>> lazy_matrix_mul([[1, -2], [-3, 4]], [[-1, 2], [3, -4]])
+[[-7, 10], [15, -22]]
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[0, 0], [0, 0]])
+[[0, 0], [0, 0]]
+>>> lazy_matrix_mul([[1.5, 2.5], [3.5, 4.5]], [[2.5, 3.5], [4.5, 5.5]])
+[[15.0, 19.0], [29.0, 37.0]]
+>>> lazy_matrix_mul(5, [[1, 2], [3, 4]])
+Traceback (most recent call last):
+...
+ValueError: Scalar operands are not allowed, use '*' instead
+>>> lazy_matrix_mul([[1, 2], [3, 4]], "matrix")
+Traceback (most recent call last):
+...
+ValueError: Scalar operands are not allowed, use '*' instead
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6]])
+[[9, 12, 15], [19, 26, 33]]
+>>> lazy_matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+...
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [['a', 'b'], ['c', 'd']])
+Traceback (most recent call last):
+...
+TypeError: invalid data type for einsum
