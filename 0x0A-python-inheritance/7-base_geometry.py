@@ -5,6 +5,9 @@ Module: 7-base_geometry.py
 
 
 class BaseGeometry:
+    """
+    Base class for geometry operations
+    """
     def area(self):
         """
         Raises an exception indicating that area() is not implemented
