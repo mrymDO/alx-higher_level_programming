@@ -5,4 +5,7 @@ class MyList(list):
     """Subclass of list"""
 
     def print_sorted(self):
-        print(sorted(self))
+        """print the list in sorted order"""
+        new_list = self[:]
+        new_list.sort()
+        print("{}".format(new_list))
