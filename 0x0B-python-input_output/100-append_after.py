@@ -9,15 +9,11 @@ def append_after(filename="", search_string="", new_string=""):
     after each line containing a specific string
     """
 
-    with open(filename, 'r+', encoding='utf-8') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
-        for i in range(len(lines)):
-            line = lines[i]
 
-            if search_string.lower() in line:
-                lines.insert(i + 1, new_string)
-        file.seek(0)
-
-        file.writelines(lines)
-
-        file.truncate()
+    with open(filename, 'w', encoding='utf-8') as file:
+        for line in lines:
+            file.write(line)
+            if search_string in line:
+                file.write(new_string)
