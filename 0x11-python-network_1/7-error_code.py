@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" send a request to an URL handling the exceptions """
+""" send a request to and display the response body """
 
 import sys
 import requests
 
 if __name__ == "__main__":
-    try:
-        r = requests.get(sys.argv[1])
+    r = requests.get(sys.argv[1])
+    if r.status_code >= 400:
+        print(f"Error code:", r.status_code)
+    else:
         print(r.text)
-    except requests.exceptions.RequestException as e:
-        print(e)
