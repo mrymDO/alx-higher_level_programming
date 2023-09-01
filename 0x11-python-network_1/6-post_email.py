@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 send an email address as a parameter to a URL and receive the response
 HTTP POST request
 """
