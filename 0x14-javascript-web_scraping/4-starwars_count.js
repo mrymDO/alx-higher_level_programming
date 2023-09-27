@@ -11,8 +11,11 @@ request.get(url, (error, response, body) => {
     const movieData = JSON.parse(body);
     let movieCount = 0;
     for (const movie of movieData.results) {
-      if (movie.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        movieCount++;
+      for (const characterUrl of movie.characters) {
+        if (characterUrl.includes('/18/')) {
+          movieCount++;
+          break;
+        }
       }
     }
     console.log(`${movieCount}`);
