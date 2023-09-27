@@ -27,7 +27,6 @@ function printCharactersInOrder (characters, index) {
     } else {
       const characterData = JSON.parse(body);
       console.log(characterData.name);
-      // Continue with the next character
       printCharactersInOrder(characters, index + 1);
     }
   });
