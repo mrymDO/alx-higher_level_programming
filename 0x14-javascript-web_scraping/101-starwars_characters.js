@@ -11,15 +11,24 @@ request.get(url, (error, response, body) => {
     console.error(error);
   } else {
     const characters = JSON.parse(body).characters;
-    characters.forEach((url) => {
-      request.get(url, (err, response, body) => {
-        if (err) {
-          console.error(err);
-        } else {
-          const characterData = JSON.parse(body);
-          console.log(characterData.name);
-        }
-      });
-    });
+    printCharactersInOrder(characters, 0);
   }
 });
+
+function printCharactersInOrder (characters, index) {
+  if (index >= characters.length) {
+    return;
+  }
+
+  const characterUrl = characters[index];
+  request.get(characterUrl, (err, response, body) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const characterData = JSON.parse(body);
+      console.log(characterData.name);
+      // Continue with the next character
+      printCharactersInOrder(characters, index + 1);
+    }
+  });
+}
